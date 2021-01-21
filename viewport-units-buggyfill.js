@@ -23,6 +23,16 @@
     'use strict';
     /* global document, window, navigator, location, XMLHttpRequest, XDomainRequest, CustomEvent */
 
+    if (!('navigator' in window)) {
+      return {
+        version: '0.6.1',
+        findProperties: null,
+        getCss: null,
+        refresh: null,
+        init: function() {}
+      }
+    }
+
     var initialized = false;
     var options;
     var userAgent = window.navigator.userAgent;
